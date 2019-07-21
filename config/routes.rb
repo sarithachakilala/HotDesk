@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :desks
-  	  root to: 'desks#index'
+  root to: 'desks#index'
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
-  devise_for :views
-  devise_for :users
+  
+  resources :desks
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

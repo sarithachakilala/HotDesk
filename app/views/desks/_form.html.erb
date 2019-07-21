@@ -11,22 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :desk_num %>
-    <%= form.text_field :desk_num %>
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= form.select(:desk_num, ["A1-1", "A1-2", "A1-3", "B1-1", "B1-2"], {include_blank: "Select something"}, { :class => 'custom-select' }) %>
+
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-6">
+   <%= form.text_field "from_to_date",id: "choose_date", class: 'form-control', data: { behavior: 'daterangepicker' } %>
+  </div>
   </div>
 
-  <div class="field">
-    <%= form.label :from %>
-    <%= form.date_select :from %>
-  </div>
-
-  <div class="field">
-    <%= form.label :till %>
-    <%= form.date_select :till %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class='form-group row'>
+    <div class="col-sm-6">
+      <%= form.submit "Book", class: 'btn btn-primary btn-lg btn-block' %>
+    </div>
   </div>
 <% end %>

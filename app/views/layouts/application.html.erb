@@ -7,11 +7,26 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <style type="text/css">
+      fieldset {
+          margin-top: 30px;
+          width: 50%;
+        }
+     .user-link {
+      color:#3c6bbf;
+      }
+  </style>
   </head>
 
   <body>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
-     <%= yield %>
+    <div class="container-fluid">
+      <fieldset class="border p-2">
+      <p class="notice"><%= notice %></p>
+      <%= yield %>
+     </fieldset>
+    </div>
   </body>
 </html>

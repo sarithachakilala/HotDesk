@@ -1,5 +1,12 @@
-<h1>New Desk</h1>
-
+<%= render 'user_login_info' %>
 <%= render 'form', desk: @desk %>
 
 <%= link_to 'Back', desks_path %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#choose_date').daterangepicker();
+});
+</script>
+
+

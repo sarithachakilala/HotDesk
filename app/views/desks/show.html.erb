@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Desk num:</strong>
-  <%= @desk.desk_num %>
-</p>
-
-<p>
-  <strong>From:</strong>
-  <%= @desk.from %>
-</p>
-
-<p>
-  <strong>Till:</strong>
-  <%= @desk.till %>
-</p>
-
-<%= link_to 'Edit', edit_desk_path(@desk) %> |
-<%= link_to 'Back', desks_path %>
+<%= render 'user_login_info' %>
+<div class="row mt-5 ml-2">
+  <div class="col-md-12">
+  	<strong>Name:</strong>
+ 	 <%= @desk.user.name %>
+  </div>
+  <div class="col-md-12">
+  	<strong>Email:</strong>
+ 	 <%= @desk.user.email %>
+  </div>
+  <div class="col-md-12">
+  	<strong>Desk:</strong>
+  	<%= @desk.desk_num %>
+  </div>
+  <div class="col-md-12 mb-5">
+  	<strong>Date:</strong>
+ 	<%= @desk.from_to_date %>
+  </div>
+</div>

@@ -24,8 +24,15 @@ class DesksController < ApplicationController
   # POST /desks
   # POST /desks.json
   def create
-    @desk = Desk.new(desk_params)
-
+    desk_exist = Desk.find_by_user_id(current_user.id)
+    if desk_exist
+       @desk = desk_exist
+       @desk.desk_num = desk_params[:desk_num]
+       @desk.from_to_date = desk_params[:from_to_date]
+    else
+       @desk = Desk.new(desk_params)
+       @desk.user_id = current_user.id
+    end
     respond_to do |format|
       if @desk.save
         format.html { redirect_to @desk, notice: 'Desk was successfully created.' }
@@ -69,6 +76,6 @@ class DesksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def desk_params
-      params.require(:desk).permit(:desk_num, :from, :till)
+      params.require(:desk).permit(:desk_num, :from_to_date, :user_id)
     end
 end
